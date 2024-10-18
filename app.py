@@ -24,6 +24,14 @@ def calcular():
         result = x * y
         historico.append(f"Multiplicação: {x} * {y} = {result}")
 
+    elif operacao == 'divisao_inteira':
+        if y != 0:
+            result = x // y
+            historico.append(f"Divisão Inteira: {x} // {y} = {result}")
+        else:
+            result = "Erro: Divisão por zero"
+            historico.append(result)
+
     return redirect(url_for('index'))
 
 @app.route('/limpar_historico')
