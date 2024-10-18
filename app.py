@@ -30,27 +30,3 @@ def calcular():
         else:
             result = "Erro: Divisão por zero"
             historico.append(result)
-    elif operacao == 'divisao_resto':
-        if y != 0:
-            result = x % y
-            historico.append(f"Resto da Divisão: {x} % {y} = {result}")
-        else:
-            result = "Erro: Divisão por zero"
-            historico.append(result)
-    elif operacao == 'quadrado':
-        result1 = x ** 2
-        result2 = y ** 2
-        historico.append(f"Elevação ao quadrado: {x}^2 = {result1}, {y}^2 = {result2}")
-        result = f"{x}^2 = {result1}, {y}^2 = {result2}"
-    else:
-        result = "Operação inválida"
-
-    return redirect(url_for('index'))
-
-@app.route('/limpar_historico')
-def limpar_historico():
-    historico.clear()
-    return redirect(url_for('index'))
-
-if __name__ == '__main__':
-    app.run(debug=True)
