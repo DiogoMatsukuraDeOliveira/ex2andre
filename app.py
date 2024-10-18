@@ -23,27 +23,6 @@ def calcular():
     elif operacao == 'multiplicacao':
         result = x * y
         historico.append(f"Multiplicação: {x} * {y} = {result}")
-    elif operacao == 'divisao_inteira':
-        if y != 0:
-            result = x // y
-            historico.append(f"Divisão Inteira: {x} // {y} = {result}")
-        else:
-            result = "Erro: Divisão por zero"
-            historico.append(result)
-    elif operacao == 'divisao_resto':
-        if y != 0:
-            result = x % y
-            historico.append(f"Resto da Divisão: {x} % {y} = {result}")
-        else:
-            result = "Erro: Divisão por zero"
-            historico.append(result)
-    elif operacao == 'quadrado':
-        result1 = x ** 2
-        result2 = y ** 2
-        historico.append(f"Elevação ao quadrado: {x}^2 = {result1}, {y}^2 = {result2}")
-        result = f"{x}^2 = {result1}, {y}^2 = {result2}"
-    else:
-        result = "Operação inválida"
 
     return redirect(url_for('index'))
 
