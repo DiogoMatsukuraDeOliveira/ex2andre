@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Software de Cálculos Matemáticos</h1>
+
+    <form action="/calcular" method="POST">
+        <label for="x">Primeiro número:</label>
+        <input type="number" name="x" required><br><br>
+
+        <label for="y">Segundo número:</label>
+        <input type="number" name="y" required><br><br>
+
+        <label for="operacao">Selecione a operação:</label>
+        <select name="operacao" required>
+            <option value="soma">Soma</option>
+            <option value="subtracao">Subtração</option>
+            <option value="multiplicacao">Multiplicação</option>
+            <option value="divisao_inteira">Divisão Inteira</option>
+            <option value="divisao_resto">Divisão com Resto</option>
+            <option value="quadrado">Equação Quadrática</option>
+        </select><br><br>
+
+        <button type="submit">Calcular</button>
+    </form>
+
+    <h2>Histórico de Cálculos</h2>
+    <ul>
+        {% for item in historico %}
+        <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <form action="/limpar_historico" method="GET">
+        <button type="submit">Limpar Histórico</button>
+    </form>
+
+</body>
+</html>
